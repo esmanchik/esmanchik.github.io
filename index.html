@@ -1,7 +1,7 @@
 <html>
     <body>
 
-        <h1 style="text-align: center;">Happy Valentine's Day</h1>
+        <h1 style="text-align: center; color: green;">Happy Valentine's Day</h1>
 
         <svg>
             <path id='shape'/>
@@ -159,12 +159,20 @@
                     O[p].rng = range(O[p].ini, O[p].fin);
                     _SHAPE.setAttribute(p, O[p].afn(O[p].ini));
                 }
-                
+
+                const h1 = document.getElementsByTagName('h1').item(0);
+
                 const changeShape = e => {
                     if(rID) stopAni();
                     dir *= -1;
                     m = .5*(1 - dir);
                     update();
+
+                    if (h1.getAttribute('style').indexOf('yellow')) {
+                        h1.setAttribute('style', 'color: green; text-align: center;');
+                    } else {
+                        h1.setAttribute('style', 'color: yellow; text-align: center;');
+                    }
                 };
 
                 _SHAPE.addEventListener('click', changeShape, false);
